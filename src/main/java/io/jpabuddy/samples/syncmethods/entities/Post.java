@@ -26,12 +26,16 @@ public class Post {
 
     public void addTag(Tag tag) {
         tags.add(tag);
-        tag.getPosts().add(this);
+        if (Hibernate.isInitialized(tag.getPosts())) {
+            tag.getPosts().add(this);
+        }
     }
 
     public void removeTag(Tag tag) {
         tags.remove(tag);
-        tag.getPosts().remove(this);
+        if (Hibernate.isInitialized(tag.getPosts())) {
+            tag.getPosts().remove(this);
+        }
     }
 
     public Set<Tag> getTags() {

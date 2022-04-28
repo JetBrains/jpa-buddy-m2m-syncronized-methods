@@ -3,9 +3,7 @@ package io.jpabuddy.samples.syncmethods.entities;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
-import java.util.LinkedHashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Table(name = "tag")
@@ -19,24 +17,28 @@ public class Tag {
     private String name;
 
     @ManyToMany(mappedBy = "tags")
-    private Set<Post> posts = new LinkedHashSet<>();
+    private List<Post> posts = new ArrayList<>();
 
     public void addPost(Post post) {
         posts.add(post);
-        post.getTags().add(this);
+        if (Hibernate.isInitialized(post.getTags())) {
+            post.getTags().add(this);
+        }
     }
 
     public void removePost(Post post) {
         posts.remove(post);
-        post.getTags().remove(this);
+        if (Hibernate.isInitialized(post.getTags())) {
+            post.getTags().remove(this);
+        }
     }
 
 
-    public Set<Post> getPosts() {
+    public List<Post> getPosts() {
         return posts;
     }
 
-    public void setPosts(Set<Post> posts) {
+    public void setPosts(List<Post> posts) {
         this.posts = posts;
     }
 
