@@ -1,0 +1,13 @@
+DELETE FROM post_tag;
+DELETE FROM tag;
+DELETE FROM post;
+INSERT INTO post (id, title) VALUES (1, 'JPA with Hibernate');
+INSERT INTO post (id, title) VALUES (2, 'Java and Hibernate');
+INSERT INTO tag (id, name) VALUES (1, 'Java');
+INSERT INTO tag (id, name) VALUES (2, 'Jpa');
+INSERT INTO tag (id, name) VALUES (3, 'Hibernate');
+INSERT INTO tag (id, name) VALUES (4, 'Development');
+INSERT INTO post_tag (post_id, tag_id) VALUES (1, 1);
+INSERT INTO post_tag (post_id, tag_id) VALUES (1, 2);
+INSERT INTO post_tag (post_id, tag_id) VALUES (2, 3);
+INSERT INTO post_tag (post_id, tag_id) VALUES (2, 4);
