@@ -253,5 +253,5 @@ Bidirectional associations are convenient, and synchronization methods prevent d
 5. Synchronization methods for the “owning” side entity are optional, but we’d recommend implementing them for the “non-owning” side with all precautions listed above.
 
 
-You can find the initial code and complete test suite [here](https://github.com/belyaev-andrey/m2m-syncronized-methods).
-The final version with all fixes is [here](https://github.com/belyaev-andrey/m2m-syncronized-methods/tree/fixed-associations). 
+You can find the initial code and complete test suite [here](https://github.com/jpa-buddy/m2m-syncronized-methods).
+The final version with all fixes is [here](https://github.com/jpa-buddy/m2m-syncronized-methods/tree/fixed-associations). 
