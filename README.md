@@ -1,7 +1,9 @@
 # Synchronization Methods for Many-To-Many Associations
 
+The many-to-many association is a common thing in data modeling. In JPA entities, it is implemented as collections that store associated entities from the other side of the association. To keep collections consistent on both sides, developers usually implement data synchronization methods. This article will highlight common issues that happen when adding synchronized methods for many-to-many bidirectional associations in JPA entities.
+
 ## 1. Many-To-Many Bidirectional Associations: Why to Synchronize?
-To start speaking about sync methods, we need to say a few words about bidirectional associations. Let’s assume that we’re creating a blog application and want to mark every post with several tags. For this application, we make two JPA entities: `Post` and `Tag` with appropriate attributes like ID, text, etc. Now we need to establish the association between one post and many tags. We can define a `tags` attribute on the `Post` entity, the type of this attribute will be `Set<Tag>`. We can notice that each tag can be reused for more than one post. In this case, we can create the `posts` attribute of type `Set<Post>` in the `Tag` entity. This is the bidirectional many-to-many association: we have references to several entities on both sides of the association. And now, our data model looks like this:
+Before speaking about sync methods, let's look at bidirectional associations and their implementation in JPA in detail. Imagine a blog application where we can mark every post with several tags. We can make two JPA entities for this application: `Post` and `Tag` with appropriate attributes like ID, text, etc. Now we need to establish the association between one post and many tags. To do this, let's define a `tags` attribute on the `Post` entity, the type of this attribute is `Set<Tag>`. Notice that each tag can be reused for more than one post. In this case, we can create the `posts` attribute of type `Set<Post>` in the `Tag` entity. This is the bidirectional many-to-many association: we have references to several entities on both sides of the association. And now, our data model looks like this:
 
 ![](pics/ManyToManySet-788x453.png)
 
@@ -253,5 +255,5 @@ Bidirectional associations are convenient, and synchronization methods prevent d
 5. Synchronization methods for the “owning” side entity are optional, but we’d recommend implementing them for the “non-owning” side with all precautions listed above.
 
 
-You can find the initial code and complete test suite [here](https://github.com/belyaev-andrey/m2m-syncronized-methods).
-The final version with all fixes is [here](https://github.com/belyaev-andrey/m2m-syncronized-methods/tree/fixed-associations). 
+You can find the initial code and complete test suite [here](https://github.com/jpa-buddy/m2m-syncronized-methods).
+The final version with all fixes is [here](https://github.com/jpa-buddy/m2m-syncronized-methods/tree/fixed-associations). 
