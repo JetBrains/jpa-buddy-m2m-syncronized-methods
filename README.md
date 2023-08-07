@@ -5,7 +5,7 @@ The many-to-many association is a common thing in data modeling. In JPA entities
 ## 1. Many-To-Many Bidirectional Associations: Why to Synchronize?
 Before speaking about sync methods, let's look at bidirectional associations and their implementation in JPA in detail. Imagine a blog application where we can mark every post with several tags. We can make two JPA entities for this application: `Post` and `Tag` with appropriate attributes like ID, text, etc. Now we need to establish the association between one post and many tags. To do this, let's define a `tags` attribute on the `Post` entity, the type of this attribute is `Set<Tag>`. Notice that each tag can be reused for more than one post. In this case, we can create the `posts` attribute of type `Set<Post>` in the `Tag` entity. This is the bidirectional many-to-many association: we have references to several entities on both sides of the association. And now, our data model looks like this:
 
-![](pics/ManyToManySet-788x391.png)
+![](pics/ManyToManySet-789x454.png)
 
 The code for entities from the example above:
 ```java
