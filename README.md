@@ -1,3 +1,5 @@
+[![JetBrains team project](https://jb.gg/badges/team.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
+
 # Synchronization Methods for Many-To-Many Associations
 
 The many-to-many association is a common thing in data modeling. In JPA entities, it is implemented as collections that store associated entities from the other side of the association. To keep collections consistent on both sides, developers usually implement data synchronization methods. This article will highlight common issues that happen when adding synchronized methods for many-to-many bidirectional associations in JPA entities.
